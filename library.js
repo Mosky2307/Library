@@ -24,28 +24,27 @@ function Book(name, author, pages, read) {
   function addBookToLibrary(book) {
 myLibrary.push(book)
 bookDisplay()
-myLibrary = [];
 };
 
 function bookDisplay() {
-    for (let i = 0; i < myLibrary.length; i++) {
+
  let bookName = document.createElement('div');
 let authorName = document.createElement('div');
 let pageNum = document.createElement('div');
 let readYet = document.createElement('div');
 let book = document.createElement('div');
 book.appendChild(bookName);
-bookName.textContent = `${myLibrary[i].name}`;
+bookName.textContent = `${myLibrary[myLibrary.length -1].name}`;
 book.appendChild(authorName);
-authorName.textContent = `${myLibrary[i].author}`;
+authorName.textContent = `${myLibrary[myLibrary.length -1].author}`;
 book.appendChild(pageNum);
-pageNum.textContent = `${myLibrary[i].pages} pages`;
+pageNum.textContent = `${myLibrary[myLibrary.length -1].pages} pages`;
 book.appendChild(readYet);
-readYet.textContent = `${myLibrary[i].read}`;
+readYet.textContent = `${myLibrary[myLibrary.length -1].read}`;
 display.appendChild(book);
 book.classList.add('book');
 ;
-    }
+    
 };
 
 addButton.addEventListener ('click', () => {
