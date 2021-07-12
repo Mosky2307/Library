@@ -3,7 +3,7 @@
     Library
 </title>
 <style>
-    body {background-color: black;}
+    body {background-color: rgb(36, 17, 17);}
     .book {margin-right: 15px; height: 180px; width: 290px;
     font-size: 30px; border:2px solid darkslateblue ; 
     background-color: #FFFFFF; border-radius: 10px; display: flex; 
@@ -17,16 +17,35 @@
     #formHolder {visibility:hidden;}
     #radio {margin-top: -15px; margin-bottom: 10px; height: 15px; padding-bottom: 0px;}
     #remove {background-color: red; height: 20px; width: 30px; border-style: solid; border-color: black;}
-    #toggle {position: relative; bottom: 45px; left: 90px; border-radius: 50%; height: 20px; width: 20px; border-style: solid;}
-    #topbar {}
+    #toggle {position: relative; bottom: 45px; left: 90px; border-radius: 50%; 
+    height: 20px; width: 20px; border-style: solid;}
+    #topbar {background-color: blanchedalmond; list-style-type: none; 
+    height: 130px;}
+    li {display: inline-block;}
+    #add {height: 100px; width: 100px; background-color: rgb(62, 185, 62);}
+    #libr {font-size: 100px; position: relative; color: maroon; bottom: 30px;}
+    .space {font-size: 120px; position:relative; bottom: 30px;}
+    #bookCount {display: flex; flex-direction: column; position: absolute; top: 30px;}
+    #bookTotal {font-size: 40px;}
+    #add {position: absolute; right: 10px; top: 25px;}
 </style>
 <body id = body>
     <ul id = topbar>
-    <button id = add>
-+
-
-   </button>
+    <li ><img src =book_icon_150971.png></li>
+        <li id = libr> Library </li> 
+        <li class = space>  |  </li>
+        <li>
+    <div id = bookCount>
+<div id = bookTotal></div>
+<div id = booksRead></div>
+<div id = booksUnread></div>
+    </div>
+</li>
+<li> <button id = add>
+Add Book
+</button>
    </ul>
+ 
    <div id = Display>
 
    </div>

@@ -1,7 +1,9 @@
 let body = document.querySelector('#body');
 let formHolder = document.querySelector('#formHolder');
-let form = document.querySelector('#form')
-
+let form = document.querySelector('#form');
+let bookTotal = document.querySelector('#bookTotal');
+let booksRead = document.querySelector('#booksRead')
+let booksUnread = document.querySelector('#booksUnread')
 let submit = document.querySelector('#submit')
 let display = document.querySelector('#Display');
 let addButton = document.querySelector('#add');
@@ -10,6 +12,10 @@ let formA = document.querySelector('#formA');
 let formB = document.querySelector('#formB');
 let formC = document.querySelector('#formC');
 let radio = document.querySelector('#radio');
+
+bookTotal.textContent = "0 books in your library"
+booksRead.textContent = '0 Books Read'
+booksUnread.textContent = '0 Books Unread'
 
 
 
@@ -30,6 +36,7 @@ class Book {
   function addBookToLibrary(book) {
 myLibrary.push(book)
 bookDisplay()
+bookTotal.textContent = `${myLibrary.length} books in your library`
 };
 
 
@@ -60,6 +67,7 @@ book.appendChild(remove);
 let toggle = document.createElement('button');
 toggle.id = 'toggle';
 book.appendChild(toggle);
+
 display.appendChild(book);
 book.classList.add('book');
 };
