@@ -1,11 +1,16 @@
 let body = document.querySelector('#body');
+let formHolder = document.querySelector('#formHolder');
+let form = document.querySelector('#form')
+
+let submit = document.querySelector('#submit')
 let display = document.querySelector('#Display');
 let addButton = document.querySelector('#add');
 let myLibrary = [];
-let formHolder = document.querySelector('#formHolder');
+let formA = document.querySelector('#formA');
+let formB = document.querySelector('#formB');
+let formC = document.querySelector('#formC');
+let radio = document.querySelector('#radio')
 
-
-body.removeChild(formHolder);
 
 function Book(name, author, pages, read) {
     this.name = name
@@ -18,6 +23,8 @@ function Book(name, author, pages, read) {
 
   function addBookToLibrary(book) {
 myLibrary.push(book)
+bookDisplay()
+myLibrary = [];
 };
 
 function bookDisplay() {
@@ -42,8 +49,27 @@ book.classList.add('book');
 };
 
 addButton.addEventListener ('click', () => {
-    body.appendChild(formHolder);
+formHolder.style.visibility = "visible";
 });
+
+submit.addEventListener ('click', () => {
+    let a = formA.value;
+    let b = formB.value;
+    let c = formC.value;
+    if (radio.checked = true) {
+let d = "Read"
+let newBook = new Book(a, b, c, d);
+addBookToLibrary(newBook);
+    } else {
+        let d = 'Not yet read'
+        let newBook = new Book(a, b, c, d);
+        addBookToLibrary(newBook);
+       
+    };
+    formHolder.style.visibility = "hidden";
+    });
+
+
 
 
 let theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not yet read');
@@ -52,4 +78,3 @@ let fantasticMrFox = new Book('Fantastic Mr. Fox', 'Roald Dahl', '96', 'Not yet 
 addBookToLibrary(theHobbit);
 addBookToLibrary(fantasticMrFox);
 
-bookDisplay();

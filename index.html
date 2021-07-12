@@ -10,11 +10,12 @@
     flex-direction: column; align-items: center; justify-content: center;}
     #Display {display:grid; grid-template-columns: repeat(6, 1fr); 
     grid-template-rows: repeat(5, 1fr);}
-    .form {position: absolute; height: 270px; width: 500px; top: 30%; left: 38%; 
+    #form {position: absolute; height: 270px; width: 500px; top: 30%; left: 38%; 
     background-color: darkslategray; border-color: black; 
     border-style: solid; border-width: 1px; display: flex; flex-direction: column; align-items: center;}
     .text {width: 400px; height: 25px; border-radius: 10px; border-color: black; margin-top: -20px; margin-bottom: 10px;}
-    
+    #formHolder {visibility:hidden;}
+    #radio {margin-top: -15px; margin-bottom: 10px;}
 </style>
 <body id = body>
     <button id = add>
@@ -25,19 +26,20 @@
 
    </div>
    <div id = formHolder>
-<form class = form>
+<form id = form>
     <label for="name">Name:</label><br>
-    <input type = "text" class = text>
+    <input type = "text" class = text id = formA>
     <label for="author">Author:</label><br>
-    <input type = "text" class = text>
+    <input type = "text" class = text id = formB>
     <label for="pages">Pages:</label><br>
-    <input type = "text" class = text>
+    <input type = "text" class = text id = formC>
     <label for="read">Read:</label><br>
-    <input type = "radio" class = text>
-    <input type = "submit">
+    <input type = "radio" id = radio>
+    <button type = "button" id = submit>Add Book</button>
 </form>
 
    </div>
+   
     <script src = library.js>
     </script>
 </body>
