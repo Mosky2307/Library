@@ -1,7 +1,9 @@
+let body = document.querySelector('#body');
 let display = document.querySelector('#Display');
 let addButton = document.querySelector('#add');
 let myLibrary = [];
 let formHolder = document.querySelector('#formHolder');
+body.removeChild(formHolder);
 function Book(name, author, pages, read) {
     this.name = name
     this.author = author
@@ -37,7 +39,7 @@ book.classList.add('book');
 };
 
 addButton.addEventListener ('click', () => {
-
+    body.appendChild(formHolder);
 });
 
 let theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not yet read');
