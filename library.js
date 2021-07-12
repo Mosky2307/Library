@@ -9,9 +9,11 @@ let myLibrary = [];
 let formA = document.querySelector('#formA');
 let formB = document.querySelector('#formB');
 let formC = document.querySelector('#formC');
-let radio = document.querySelector('#radio')
+let radio = document.querySelector('#radio');
 
 
+
+//This function is played when the user submits book info
 function Book(name, author, pages, read) {
     this.name = name
     this.author = author
@@ -21,18 +23,25 @@ function Book(name, author, pages, read) {
        return `${name} by ${author}, ${pages} pages, ${read}`}     
   };
 
+  //This function is played when the user submits book info
   function addBookToLibrary(book) {
 myLibrary.push(book)
 bookDisplay()
 };
 
-function bookDisplay() {
+function removeBookFromLibrary() {
 
- let bookName = document.createElement('div');
+}
+
+
+//This function appends a book card to the library
+function bookDisplay() {
+let bookName = document.createElement('div');
 let authorName = document.createElement('div');
 let pageNum = document.createElement('div');
 let readYet = document.createElement('div');
 let book = document.createElement('div');
+book.id = `book${myLibrary.length - 1}`
 book.appendChild(bookName);
 bookName.textContent = `${myLibrary[myLibrary.length -1].name}`;
 book.appendChild(authorName);
@@ -41,16 +50,24 @@ book.appendChild(pageNum);
 pageNum.textContent = `${myLibrary[myLibrary.length -1].pages} pages`;
 book.appendChild(readYet);
 readYet.textContent = `${myLibrary[myLibrary.length -1].read}`;
+let remove = document.createElement('button');
+remove.id = 'remove';
+remove.addEventListener ('click', () => {
+display.removeChild(book)
+})
+book.appendChild(remove);
 display.appendChild(book);
 book.classList.add('book');
 ;
     
 };
 
+//This is the add function, it pulls up a form
 addButton.addEventListener ('click', () => {
 formHolder.style.visibility = "visible";
 });
 
+//This is the submit function, it creates a book based on the user input
 submit.addEventListener ('click', () => {
     let a = formA.value;
     let b = formB.value;
@@ -68,6 +85,7 @@ addBookToLibrary(newBook);
     formHolder.style.visibility = "hidden";
     });
 
+    
 
 
 
