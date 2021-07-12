@@ -14,14 +14,17 @@ let radio = document.querySelector('#radio');
 
 
 //This function is played when the user submits book info
-function Book(name, author, pages, read) {
-    this.name = name
-    this.author = author
-    this.pages = pages
-    this.read = read 
-   this.info = function() {
-       return `${name} by ${author}, ${pages} pages, ${read}`}     
-  };
+class Book {
+    constructor(name, author, pages, read) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.info = function () {
+            return `${name} by ${author}, ${pages} pages, ${read}`;
+        };
+    }
+};
 
   //This function is played when the user submits book info
   function addBookToLibrary(book) {
@@ -29,9 +32,6 @@ myLibrary.push(book)
 bookDisplay()
 };
 
-function removeBookFromLibrary() {
-
-}
 
 
 //This function appends a book card to the library
@@ -55,11 +55,13 @@ remove.id = 'remove';
 remove.addEventListener ('click', () => {
 display.removeChild(book)
 })
+remove.textContent = "-"
 book.appendChild(remove);
+let toggle = document.createElement('button');
+toggle.id = 'toggle';
+book.appendChild(toggle);
 display.appendChild(book);
 book.classList.add('book');
-;
-    
 };
 
 //This is the add function, it pulls up a form
