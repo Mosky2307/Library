@@ -3,7 +3,10 @@ let display = document.querySelector('#Display');
 let addButton = document.querySelector('#add');
 let myLibrary = [];
 let formHolder = document.querySelector('#formHolder');
+
+
 body.removeChild(formHolder);
+
 function Book(name, author, pages, read) {
     this.name = name
     this.author = author
@@ -18,11 +21,11 @@ myLibrary.push(book)
 };
 
 function bookDisplay() {
-    let bookName = document.createElement('div');
+    for (let i = 0; i < myLibrary.length; i++) {
+ let bookName = document.createElement('div');
 let authorName = document.createElement('div');
 let pageNum = document.createElement('div');
 let readYet = document.createElement('div');
-    for (let i = 0; i < myLibrary.length; i++) {
 let book = document.createElement('div');
 book.appendChild(bookName);
 bookName.textContent = `${myLibrary[i].name}`;
@@ -41,6 +44,7 @@ book.classList.add('book');
 addButton.addEventListener ('click', () => {
     body.appendChild(formHolder);
 });
+
 
 let theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'Not yet read');
 let fantasticMrFox = new Book('Fantastic Mr. Fox', 'Roald Dahl', '96', 'Not yet read');
