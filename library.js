@@ -13,9 +13,12 @@ let formB = document.querySelector('#formB');
 let formC = document.querySelector('#formC');
 let radio = document.querySelector('#radio');
 
-bookTotal.textContent = "0 books in your library"
+let booksReadCount = 0;
+let booksUnreadCount = 2;
+
+bookTotal.textContent = `${myLibrary.length} books in your library`
 booksRead.textContent = '0 Books Read'
-booksUnread.textContent = '0 Books Unread'
+booksUnread.textContent = '2 Books Unread'
 
 
 
@@ -48,6 +51,7 @@ let authorName = document.createElement('div');
 let pageNum = document.createElement('div');
 let readYet = document.createElement('div');
 let book = document.createElement('div');
+let blah = `${myLibrary.length - 1}`
 book.id = `book${myLibrary.length - 1}`
 book.appendChild(bookName);
 bookName.textContent = `${myLibrary[myLibrary.length -1].name}`;
@@ -60,7 +64,9 @@ readYet.textContent = `${myLibrary[myLibrary.length -1].read}`;
 let remove = document.createElement('button');
 remove.id = 'remove';
 remove.addEventListener ('click', () => {
-display.removeChild(book)
+display.removeChild(book);
+myLibrary.splice(`${blah}`, 1);
+bookTotal.textContent = `${myLibrary.length} books in your library`;
 })
 remove.textContent = "-"
 book.appendChild(remove);
@@ -86,11 +92,14 @@ submit.addEventListener ('click', () => {
 let d = "Read"
 let newBook = new Book(a, b, c, d);
 addBookToLibrary(newBook);
+booksReadCount += 1;
+booksRead.textContent = `${booksReadCount} Books Read`
     } else {
         let d = 'Not yet read'
         let newBook = new Book(a, b, c, d);
         addBookToLibrary(newBook);
-       
+       booksUnreadCount += 1;
+       booksUnread.textContent = `${booksUnreadCount} Books Read`
     };
     formHolder.style.visibility = "hidden";
     });
