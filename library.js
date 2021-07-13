@@ -53,6 +53,13 @@ let readYet = document.createElement('div');
 let book = document.createElement('div');
 let blah = `${myLibrary.length - 1}`
 book.id = `book${myLibrary.length - 1}`
+if (myLibrary.length % 3 === 0) {
+    book.style.backgroundColor = 'blue'
+} else if ((myLibrary.length + 1) % 3 === 0) {
+    book.style.backgroundColor = 'salmon'
+} else {
+    book.style.backgroundColor = 'green'
+};
 book.appendChild(bookName);
 bookName.textContent = `${myLibrary[myLibrary.length -1].name}`;
 book.appendChild(authorName);
@@ -88,6 +95,8 @@ submit.addEventListener ('click', () => {
     let a = formA.value;
     let b = formB.value;
     let c = formC.value;
+    if (c === "" || b === "" || a === "") {}
+    else {
     if (radio.checked = true) {
 let d = "Read"
 let newBook = new Book(a, b, c, d);
@@ -101,7 +110,7 @@ booksRead.textContent = `${booksReadCount} Books Read`
        booksUnreadCount += 1;
        booksUnread.textContent = `${booksUnreadCount} Books Read`
     };
-    formHolder.style.visibility = "hidden";
+    formHolder.style.visibility = "hidden";}
     });
 
     
