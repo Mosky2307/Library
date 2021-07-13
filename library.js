@@ -11,7 +11,8 @@ let myLibrary = [];
 let formA = document.querySelector('#formA');
 let formB = document.querySelector('#formB');
 let formC = document.querySelector('#formC');
-let radio = document.querySelector('#radio');
+let checkbox = document.querySelector('#checkbox');
+
 
 let booksReadCount = 0;
 let booksUnreadCount = 2;
@@ -75,14 +76,24 @@ remove.id = 'remove';
 //This is the remove button
 
 remove.addEventListener ('click', () => {
+if (readYet.textContent === "Read") {
+booksReadCount --;
+booksRead.textContent = `${booksReadCount} Books Read`
+} else {
+booksUnreadCount --;
+booksUnread.textContent = `${booksUnreadCount} Books Unread`
+}
 display.removeChild(book);
 myLibrary.pop();
 bookTotal.textContent = `${myLibrary.length} books in your library`;
+
 })
 remove.textContent = "-"
 book.appendChild(remove);
 let toggle = document.createElement('button');
 toggle.id = 'toggle';
+
+//This is the toggle button
 
 toggle.addEventListener ('click', () => {
     if (readYet.textContent === "Read") {
@@ -118,7 +129,7 @@ submit.addEventListener ('click', () => {
     let c = formC.value;
     if (c === "" || b === "" || a === "") {}
     else {
-    if (radio.checked = true) {
+    if (checkbox.checked === true) {
 let d = "Read"
 let newBook = new Book(a, b, c, d);
 addBookToLibrary(newBook);
@@ -129,7 +140,7 @@ booksRead.textContent = `${booksReadCount} Books Read`
         let newBook = new Book(a, b, c, d);
         addBookToLibrary(newBook);
        booksUnreadCount += 1;
-       booksUnread.textContent = `${booksUnreadCount} Books Read`
+       booksUnread.textContent = `${booksUnreadCount} Books Unread`
     };
     formHolder.style.visibility = "hidden";}
     });

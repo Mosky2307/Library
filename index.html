@@ -15,8 +15,9 @@
     border-style: solid; border-width: 1px; display: flex; flex-direction: column; align-items: center;}
     .text {width: 400px; height: 25px; border-radius: 10px; border-color: black; margin-top: -20px; margin-bottom: 10px;}
     #formHolder {visibility:hidden;}
-    #radio {margin-top: -15px; margin-bottom: 10px; height: 15px; padding-bottom: 0px;}
-    #remove {background-color: red; height: 20px; width: 30px; border-style: solid; border-color: black;}
+    #checkbox {margin-top: -15px; margin-bottom: 10px; height: 15px; padding-bottom: 0px;}
+    #remove {background-color: red; height: 20px; width: 30px; border-style: solid; border-color: black; 
+    position:relative; top: 20px;}
     #toggle {position: relative; bottom: 45px; left: 95px; border-radius: 50%; 
     height: 20px; width: 20px; border-style: solid;}
     #topbar {background-color: blanchedalmond; list-style-type: none; 
@@ -30,6 +31,7 @@
     #add {position: absolute; right: 20px; top: 25px;}
 </style>
 <body id = body>
+    
     <ul id = topbar>
     <li><img src =book_icon_150971.png></li>
         <li id = libr> Library </li> 
@@ -58,12 +60,11 @@ Add Book
     <label for="pages">Pages:</label><br>
     <input type = "text" class = text id = formC>
     <label for="read">Read:</label><br>
-    <input type = "radio" id = radio>
+    <input type = "checkbox" id = checkbox>
     <button type = "button" id = submit>Add Book</button>
 </form>
 
    </div>
-   
     <script src = library.js>
     </script>
 </body>
