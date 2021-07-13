@@ -60,6 +60,7 @@ if (myLibrary.length % 3 === 0) {
 } else {
     book.style.backgroundColor = 'green'
 };
+book.style.fontFamily = 'Arial'
 book.appendChild(bookName);
 bookName.textContent = `${myLibrary[myLibrary.length -1].name}`;
 book.appendChild(authorName);
@@ -70,15 +71,35 @@ book.appendChild(readYet);
 readYet.textContent = `${myLibrary[myLibrary.length -1].read}`;
 let remove = document.createElement('button');
 remove.id = 'remove';
+
+//This is the remove button
+
 remove.addEventListener ('click', () => {
 display.removeChild(book);
-myLibrary.splice(`${blah}`, 1);
+myLibrary.pop();
 bookTotal.textContent = `${myLibrary.length} books in your library`;
 })
 remove.textContent = "-"
 book.appendChild(remove);
 let toggle = document.createElement('button');
 toggle.id = 'toggle';
+
+toggle.addEventListener ('click', () => {
+    if (readYet.textContent === "Read") {
+        readYet.textContent = "Not yet read";
+        booksReadCount--;
+        booksUnreadCount++;
+        booksRead.textContent = `${booksReadCount} Books Read`
+        booksUnread.textContent = `${booksUnreadCount} Books Unread`
+    } else {
+        readYet.textContent = "Read"
+        booksReadCount++;
+        booksUnreadCount--;
+        booksRead.textContent = `${booksReadCount} Books Read`
+        booksUnread.textContent = `${booksUnreadCount} Books Unread`
+    }
+})
+
 book.appendChild(toggle);
 
 display.appendChild(book);
